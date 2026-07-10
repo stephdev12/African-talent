@@ -2,7 +2,9 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "**.supabase.co" },
+      // Autorise toute source d'image en https (photos de candidats hébergées
+      // n'importe où : Supabase Storage, Imgur, Google Drive avec lien direct, etc.)
+      { protocol: "https", hostname: "**" },
     ],
   },
 };
