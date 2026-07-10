@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-900 text-mist antialiased;
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-mist;
+  }
+
+  /* Visible keyboard focus everywhere, no exceptions */
+  :focus-visible {
+    outline: 2px solid theme("colors.gold.DEFAULT");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply bg-ink-800/80 border border-white/[0.06] backdrop-blur-sm;
+  }
+
+  .digit-roll {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .eyebrow {
+    @apply text-xs tracking-[0.2em] uppercase text-mist-muted font-medium;
+  }
+}
+
+/* Étoile décorative façon logo (couronne de la marque) */
+.star-crown {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
