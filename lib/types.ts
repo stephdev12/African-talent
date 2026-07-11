@@ -33,14 +33,13 @@ export interface Transaction {
 
 export const CATEGORY_LABELS: Record<CandidateCategory, string> = {
   gospel: "Gospel",
-  moderne_urbain: "Moderne & Urbain",
+  moderne_urbain: "Urbaine",
 };
 
-// Version courte utilisée dans les espaces étroits (badges de card) pour éviter
-// que "Moderne & Urbain" ne casse la mise en page sur mobile.
+// Version courte utilisée dans les espaces étroits (badges de card).
 export const CATEGORY_LABELS_SHORT: Record<CandidateCategory, string> = {
   gospel: "Gospel",
-  moderne_urbain: "Urbain",
+  moderne_urbain: "Urbaine",
 };
 
 export const PRICE_PER_VOTE = 100; // FCFA

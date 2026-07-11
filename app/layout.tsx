@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "African Talents — Votez pour votre artiste",
   description:
-    "Concours musical African Talents : votez pour vos candidats préférés dans les catégories Gospel et Moderne & Urbain.",
+    "Concours musical African Talents : votez pour vos candidats préférés dans les catégories Gospel et Urbaine.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

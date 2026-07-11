@@ -10,7 +10,7 @@ type Tab = "all" | CandidateCategory;
 const TABS: { key: Tab; label: string }[] = [
   { key: "all", label: "Classement général" },
   { key: "gospel", label: "Gospel" },
-  { key: "moderne_urbain", label: "Moderne & Urbain" },
+  { key: "moderne_urbain", label: "Urbaine" },
 ];
 
 const REFRESH_MS = 15000;

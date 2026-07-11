@@ -84,7 +84,7 @@ export default async function HomePage() {
             Votez pour votre artiste préféré
           </h1>
           <p className="text-mist-muted text-base sm:text-lg max-w-xl text-balance">
-            Deux catégories, un seul vainqueur par scène. Chaque vote compte.
+            Deux catégories, un seul vainqueur par catégorie. Chaque vote compte.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2 w-full sm:w-auto">
             <a
@@ -97,7 +97,7 @@ export default async function HomePage() {
               href="#moderne"
               className="px-5 py-2.5 rounded-full bg-ember text-mist font-medium text-sm text-center whitespace-nowrap hover:bg-ember-soft transition-colors"
             >
-              Moderne &amp; Urbain
+              Catégorie Urbaine
             </a>
             <Link
               href="/classement"
@@ -136,7 +136,7 @@ export default async function HomePage() {
         <div className="flex items-baseline justify-between mb-8 gap-3">
           <h2 className="text-2xl font-semibold text-mist flex items-center gap-3 min-w-0">
             <span className="w-2 h-2 rounded-full bg-ember shrink-0" />
-            <span className="truncate">Moderne &amp; Urbain</span>
+            <span className="truncate">Urbaine</span>
           </h2>
           <span className="text-sm text-mist-muted whitespace-nowrap shrink-0">{moderne.length} candidat(e)s</span>
         </div>

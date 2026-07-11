@@ -125,7 +125,7 @@ export default function DashboardClient() {
             className="w-full rounded-xl bg-ink-700 border border-white/10 px-4 py-2.5 text-mist outline-none focus:border-white/25"
           >
             <option value="gospel">Gospel</option>
-            <option value="moderne_urbain">Moderne & Urbain</option>
+            <option value="moderne_urbain">Urbaine</option>
           </select>
         </div>
         <div>
