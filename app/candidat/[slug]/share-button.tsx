@@ -11,7 +11,7 @@ export default function ShareButton({ candidateName }: ShareButtonProps) {
   const [canShare, setCanShare] = useState(false);
 
   useEffect(() => {
-    if (typeof navigator !== "undefined" && navigator.share) {
+    if (typeof navigator !== "undefined" && (navigator as any).share) {
       setCanShare(true);
     }
   }, []);
@@ -25,7 +25,7 @@ export default function ShareButton({ candidateName }: ShareButtonProps) {
 
     if (canShare) {
       try {
-        await navigator.share(shareData);
+        await (navigator as any).share(shareData);
         return;
       } catch (err) {
         // If user cancelled, don't do anything
