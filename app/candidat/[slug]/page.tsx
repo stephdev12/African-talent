@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { CandidateWithTotal, CATEGORY_LABELS } from "@/lib/types";
 import VoteWidget from "./vote-widget";
+import ShareButton from "./share-button";
 
 export const dynamic = "force-dynamic";
 
@@ -36,12 +37,15 @@ export default async function CandidatePage({ params }: { params: { slug: string
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8 py-12 sm:py-16 grid md:grid-cols-2 gap-10 items-start">
         {/* Colonne portrait */}
         <div className="animate-fade-up flex flex-col gap-5">
-          <Link
-            href="/"
-            className="self-start inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink-800/80 px-4 py-2 text-sm text-mist hover:bg-white/5 hover:border-white/20 transition-colors"
-          >
-            <span aria-hidden>←</span> Tous les candidats
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-ink-800/80 px-4 py-2 text-sm text-mist hover:bg-white/5 hover:border-white/20 transition-colors"
+            >
+              <span aria-hidden>←</span> Tous les candidats
+            </Link>
+            <ShareButton candidateName={candidate.full_name} />
+          </div>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-ink-700">
             {candidate.photo_url ? (
               <Image
