@@ -1,11 +1,11 @@
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { CandidateWithTotal } from "@/lib/types";
 import LeaderboardClient from "./leaderboard-client";
 
 export const dynamic = "force-dynamic";
 
 async function getCandidates(): Promise<CandidateWithTotal[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("candidates_with_total")
     .select("*")
     .eq("is_active", true);

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { CandidateWithTotal, CATEGORY_LABELS } from "@/lib/types";
 import VoteWidget from "./vote-widget";
 
 export const dynamic = "force-dynamic";
 
 async function getCandidate(slug: string): Promise<CandidateWithTotal | null> {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("candidates_with_total")
     .select("*")
     .eq("slug", slug)

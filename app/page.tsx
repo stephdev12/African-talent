@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import { CandidateWithTotal, CATEGORY_LABELS_SHORT } from "@/lib/types";
 import RevealOnScroll from "./components/reveal-on-scroll";
 
 export const dynamic = "force-dynamic";
 
 async function getCandidates(): Promise<CandidateWithTotal[]> {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("candidates_with_total")
     .select("*")
     .eq("is_active", true)
