@@ -15,4 +15,9 @@ if (!supabaseUrl || !serviceRoleKey) {
 // fait échouer la compilation si ce fichier est importé côté navigateur.
 export const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey, {
   auth: { persistSession: false },
+  global: {
+    fetch: (url, options = {}) => {
+      return fetch(url, { ...options, cache: "no-store" });
+    },
+  },
 });

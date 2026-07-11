@@ -8,16 +8,20 @@ export const dynamic = "force-dynamic";
 
 async function getCandidates(): Promise<CandidateWithTotal[]> {
   const { data, error } = await supabaseAdmin
-    .from("candidates_with_total")
+    .from("candidates")
     .select("*")
     .eq("is_active", true)
     .order("full_name", { ascending: true });
 
   if (error) {
-    console.error(error);
+    console.error("getCandidates error:", error);
     return [];
   }
-  return data as CandidateWithTotal[];
+  console.log("getCandidates returned", data?.length, "candidates");
+  return (data || []).map((c) => ({
+    ...c,
+    total_votes: (c.paid_votes || 0) + (c.manual_votes || 0),
+  })) as CandidateWithTotal[];
 }
 
 function CandidateCard({ candidate, accent }: { candidate: CandidateWithTotal; accent: "gold" | "ember" }) {

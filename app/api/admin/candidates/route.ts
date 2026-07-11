@@ -16,12 +16,16 @@ export async function GET() {
     return NextResponse.json({ error: "Non autorisé." }, { status: 401 });
   }
   const { data, error } = await supabaseAdmin
-    .from("candidates_with_total")
+    .from("candidates")
     .select("*")
     .order("created_at", { ascending: false });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  return NextResponse.json({ candidates: data });
+  const candidates = (data || []).map((c: any) => ({
+    ...c,
+    total_votes: (c.paid_votes || 0) + (c.manual_votes || 0),
+  }));
+  return NextResponse.json({ candidates });
 }
 
 export async function POST(req: NextRequest) {

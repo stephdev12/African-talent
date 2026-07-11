@@ -13,4 +13,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 // Ne jamais utiliser ce client pour écrire des données sensibles.
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: { persistSession: false },
+  global: {
+    fetch: (url, options = {}) => {
+      return fetch(url, { ...options, cache: "no-store" });
+    },
+  },
 });

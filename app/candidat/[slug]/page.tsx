@@ -9,14 +9,17 @@ export const dynamic = "force-dynamic";
 
 async function getCandidate(slug: string): Promise<CandidateWithTotal | null> {
   const { data, error } = await supabaseAdmin
-    .from("candidates_with_total")
+    .from("candidates")
     .select("*")
     .eq("slug", slug)
     .eq("is_active", true)
     .single();
 
   if (error || !data) return null;
-  return data as CandidateWithTotal;
+  return {
+    ...data,
+    total_votes: (data.paid_votes || 0) + (data.manual_votes || 0),
+  } as CandidateWithTotal;
 }
 
 export default async function CandidatePage({ params }: { params: { slug: string } }) {
