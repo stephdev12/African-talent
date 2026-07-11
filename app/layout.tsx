@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-ink-900/80 backdrop-blur-md">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              {/* Place le logo fourni ici : public/logo.jpg */}
-              <Image src="/logo.jpg" alt="African Talents" width={36} height={36} priority />
+              {/* Place le logo fourni ici : public/logo.png */}
+              <Image src="/logo.png" alt="African Talents" width={36} height={36} priority />
               <span className="font-semibold tracking-tight text-mist hidden sm:inline">
                 African Talents
               </span>

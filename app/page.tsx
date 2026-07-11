@@ -77,7 +77,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-urbain-glow" />
         <div className="relative mx-auto max-w-4xl px-6 py-24 sm:py-32 text-center flex flex-col items-center gap-6 animate-fade-up">
           <div className="relative">
-            <Image src="/logo.jpg" alt="African Talents" width={88} height={88} className="animate-star-drift" />
+            <Image src="/logo.png" alt="African Talents" width={88} height={88} className="animate-star-drift" />
           </div>
           <p className="eyebrow">Concours musical 2026</p>
           <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight text-mist text-balance">
