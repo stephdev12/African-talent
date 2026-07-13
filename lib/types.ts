@@ -9,6 +9,7 @@ export interface Candidate {
   bio: string | null;
   paid_votes: number;
   manual_votes: number;
+  foreign_payment_url: string | null;
   is_active: boolean;
   created_at: string;
 }

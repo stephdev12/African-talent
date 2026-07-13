@@ -8,10 +8,12 @@ export default function VoteWidget({
   candidateId,
   candidateName,
   accent,
+  foreignPaymentUrl,
 }: {
   candidateId: string;
   candidateName: string;
   accent: "gold" | "ember";
+  foreignPaymentUrl?: string | null;
 }) {
   const [nbVotes, setNbVotes] = useState(1);
   const [phone, setPhone] = useState("");
@@ -177,6 +179,30 @@ export default function VoteWidget({
           Paiement sécurisé par Fapshi. Tu seras redirigé(e) vers une page de paiement Mobile Money.
         </p>
       </form>
+
+      {/* Section vote depuis l'étranger (Maketou) */}
+      {foreignPaymentUrl && (
+        <div className="pt-5 border-t border-white/[0.06] flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <span className="text-lg">🌍</span>
+            <p className="text-sm font-medium text-mist">Vous êtes à l'étranger ?</p>
+          </div>
+          <p className="text-xs text-mist-muted leading-relaxed">
+            Pas de Mobile Money ? Utilisez notre lien de paiement international pour voter depuis n'importe quel pays.
+          </p>
+          <a
+            href={foreignPaymentUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full rounded-xl py-3.5 font-semibold text-sm text-center transition-all duration-200 border-2 border-emerald-500/30 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50"
+          >
+            🌐 Voter depuis l'étranger
+          </a>
+          <p className="text-xs text-mist-faint text-center">
+            Paiement via Maketou. Vos votes seront ajoutés après confirmation.
+          </p>
+        </div>
+      )}
     </div>
   );
 }

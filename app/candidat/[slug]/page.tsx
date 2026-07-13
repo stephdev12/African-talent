@@ -75,7 +75,12 @@ export default async function CandidatePage({ params }: { params: { slug: string
 
         {/* Colonne vote */}
         <div className="animate-fade-up" style={{ animationDelay: "0.1s" }}>
-          <VoteWidget candidateId={candidate.id} candidateName={candidate.full_name} accent={accent} />
+          <VoteWidget
+            candidateId={candidate.id}
+            candidateName={candidate.full_name}
+            accent={accent}
+            foreignPaymentUrl={candidate.foreign_payment_url}
+          />
         </div>
       </div>
     </div>
